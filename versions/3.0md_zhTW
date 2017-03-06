@@ -132,7 +132,7 @@ API的OAS表示法是由單一文件製成。
 在OAS中的基本資料類型是依據[JSON Schema Specification Wright Draft 00](https://tools.ietf.org/html/draft-wright-json-schema-00#section-4.2)支援的類型而定。 
 注意，作為一種類型的`integer`是同樣被支援的並且無需分數或指數皆被定義為一JSON數字。 
 `null`不支援作為一組數值。 
-模型使用JSON Schema Specification Wright Draft 00的一延展子集[Schema Object](#schemaObject)來描述。
+模型使用JSON Schema Specification Wright Draft 00的一擴充子集[Schema Object](#schemaObject)來描述。
 
 <a name="dataTypeFormat"></a>基本資料具有一個可選擇修飾詞屬性: `format`。
 OAS使用許多已知的格式來更完善定義正被使用的資料類型。
@@ -159,47 +159,47 @@ password | `string` | `password` | 用於暗示使用者介面該輸入必須被
 ### <a name="relativeReferences"></a>URL相關參考
 
 除非特定，否則所有是URL的屬性，一如[RFC 3986](https://tools.ietf.org/html/rfc3986#section-4.2)所定義的，可以作為相關參考.
-相關參考是Relative references are resolved using the URLs defined in the [`Server Object`](#serverObject) as a Base URI.
+利用於[`Server Object`](#serverObject)中定義的URL作為基礎URI，相關參考是可以被解決的。
 
-Relative references used in `$ref` are processed as per [JSON Reference](https://tools.ietf.org/html/draft-pbryan-zyp-json-ref-03), i.e. using the URL of the current document as the base URI. See also the [Reference Object](#referenceObject).
+在`$ref`中利用的相關參考要如每一筆[JSON Reference](https://tools.ietf.org/html/draft-pbryan-zyp-json-ref-03)來被處理，例如目前文件中正在作為基礎URI使用的URL。同時請參考[Reference Object](#referenceObject)。
 
-### Schema
+### 綱要
 
-In the following description, if a field is not explicitly **Required** or described with a MUST or SHALL, it can be considered OPTIONAL. 
+在下列描述中，如果某一欄位沒有明確標明**必要**或用必須或應該所描述的，都可以視為可選擇的。 
 
-#### <a name="oasObject"></a>OpenAPI Object
+#### <a name="oasObject"></a>OpenAPI 物件
 
-This is the root document object for the API specification.
-It combines what previously was the Resource Listing and API Declaration (version 1.2 and earlier) together into one document.
+這是API規格的根文件物件。
+一起結合先前資源列表(Resource Listing)與API宣告(API Declaration，1.2與更早版本)至單一文件中。
 
-##### Fixed Fields
+##### 固定欄位
 
-Field Name | Type | Description
+欄位名稱 | 類型 | 描述
 ---|:---:|---
-<a name="oasVersion"></a>openapi | `string` | **Required.** Specifies the OpenAPI Specification version being used. It can be used by tooling Specifications and clients to interpret the version. The structure SHALL be `major`.`minor`.`patch`, where `patch` versions MUST be compatible with the existing `major`.`minor` tooling. Typically patch versions will be introduced to address errors in the documentation, and tooling SHOULD typically be compatible with the corresponding `major`.`minor` (3.0.*). Patch versions will correspond to patches of this document.
-<a name="oasInfo"></a>info | [Info Object](#infoObject) | **Required.** Provides metadata about the API. The metadata can be used by the clients if needed.
-<a name="oasServers"></a>servers | [[Server Object](#serverObject)] | An optional array of Server Objects which provide connectivity information to a target server.
-<a name="oasPaths"></a>paths | [Paths Object](#pathsObject) | **Required.** The available paths and operations for the API.
-<a name="oasComponents"></a>components | [Components Object](#componentsObject) | An element to hold various schemas for the specification.
-<a name="oasSecurity"></a>security | [[Security Requirement Object](#securityRequirementObject)] | A declaration of which security mechanisms can be used across the API. The list of values includes alternative security requirement objects that can be used. Only one of the security requirement objects need to be satisfied to authorize a request. Individual operations can override this definition.
-<a name="oasTags"></a>tags | [[Tag Object](#tagObject)] | A list of tags used by the specification with additional metadata. The order of the tags can be used to reflect on their order by the parsing tools. Not all tags that are used by the [Operation Object](#operationObject) must be declared. The tags that are not declared MAY be organized randomly or based on the tools' logic. Each tag name in the list MUST be unique.
-<a name="oasExternalDocs"></a>externalDocs | [External Documentation Object](#externalDocumentationObject) | Additional external documentation.
+<a name="oasVersion"></a>openapi | `string` | **必要**。 指定正在使用之OpenAPI規格版本。可以根據加工規格和客戶端來用於解釋該版本。結構應該為`major`、`minor`、`patch`，其中`patch`版本必須與現有`major`、`minor`模具相容。典型修補程式版本要導入來處理文件中的錯誤，以及模具通常應該與相應`major`和`minor`相容(3.0.*)。修補程式版本將對應本文件之修正。
+<a name="oasInfo"></a>info | [Info Object](#infoObject) | **必要**。 提供有關API之詮釋資料。如果需要，詮釋資料可以為客戶端所使用。
+<a name="oasServers"></a>servers | [[Server Object](#serverObject)] | 一組伺服器物件的可選擇陣列，提供連接資訊給予目標伺服器。
+<a name="oasPaths"></a>paths | [Paths Object](#pathsObject) | **必要**。該API的可利用路徑與運算。
+<a name="oasComponents"></a>components | [Components Object](#componentsObject) | 針對規格保有多種綱要的元素物件。
+<a name="oasSecurity"></a>security | [[Security Requirement Object](#securityRequirementObject)] | 可以跨API間使用之安全機制的宣告。數值名單包含可被利用的替代性安全需求。 僅一項安全需求物件需要被滿足來授權一項要求。個別運算可以覆寫本定義。
+<a name="oasTags"></a>tags | [[Tag Object](#tagObject)] | 具額外詮釋資料規格所使用的標籤名單。標籤的順序可以被用於反射他們在剖析工具上的順序。並非所有被[Operation Object](#operationObject)所利用的標籤都必須被宣告。沒有被宣告的標籤可以隨機組織或依據工具邏輯來建置。每個名單中的標籤名必須是獨特的。
+<a name="oasExternalDocs"></a>externalDocs | [External Documentation Object](#externalDocumentationObject) | 額外外部文件
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+這個物件可以由[規格擴充](#specificationExtensions)來擴充。 
 
-#### <a name="oasVersionString"></a>OpenAPI Version String
+#### <a name="oasVersionString"></a>OpenAPI版本字串
 
-The version string signifies the version of the OpenAPI Specification that the document complies to.  The format for this string MUST be `major`.`minor`.`patch`.  The `patch` MAY be suffixed by a hyphen and extra alphanumeric characters.
+版本字串表示文件執行的OpenAPI規格版本。本字串的格式必須是`major`、`minor`、`patch`。`patch`可以由連字符號和額外字母字元來後綴。
 
-A `major`.`minor` SHALL be used to designate the OpenAPI Specification version, and will be considered compatible with the OpenAPI Specification specified by that `major`.`minor` version.  The patch version will not be considered by tooling, making no distinction between `3.0.0` and `3.0.1`.
+`major`、`minor`應該被用於指定OpenAPI規格版本，並且將被視為與那些`major`、`minor`版本指定的OpenAPI規格版本相容。修補程式版本將不被模具所考慮，`3.0.0`與`3.0.1`間沒有差別。
 
-In subsequent versions of the OpenAPI Specification, care will be given such that increments of the `minor` version SHOULD NOT interfere with operations of tooling developed to a lower minor version.  Thus a hypothetical `3.1.0` specification SHOULD be usable with tooling designed for `3.0.0`.
+在隨後的OpenAPI規格版本中，會注意`minor`版本的增量不應該干擾在較低次要版本中模具發展的運算。因此，假定的`3.1.0`規格應該可讓針對`3.0.0`設計的模具方便使用.
 
 
-#### <a name="infoObject"></a>Info Object
+#### <a name="infoObject"></a>資訊物件
 
-The object provides metadata about the API.
-The metadata can be used by the clients if needed, and can be presented in editing or documentation generation tools for convenience.
+本物件提供有關API的詮釋資料。
+如果需要，詮釋資料可以為客戶端所使用，並且為了便利，可以顯示於編輯與文件產生工具中。
 
 ##### Fixed Fields
 
