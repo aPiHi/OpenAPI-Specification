@@ -12,70 +12,70 @@ Open API規格(OAS)是用於描述與紀錄RESTful API的專案。
 Open API規範定義描述一支API所需之文件。
 這些文件隨後可以被文件產生工具利用來呈現API與編碼產生工具用以在多種程式語言中產生客戶端。
 
-額外的工具亦能從成果文件中獲得好處，例如測試工具。
+額外的公用程式亦能從成果文件中獲得好處，例如測試工具。
 
 ## 目錄
 <!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [定義](#定義)
-	- [Path Templating](#pathTemplating)
-	- [Media Types](#mediaTypes)
-	- [HTTP Status Codes](#httpCodes)
-- [規格](#規格)
-	- [Format](#format)
-	- [File Structure](#fileStructure)
-	- [Data Types](#dataTypes)
-	- [Relative References In URLs](#relativeReferences)
-	- [Schema](#schema)
+- [定義](#definitions)
+	- [路徑模板](#pathTemplating)
+	- [媒體類型](#mediaTypes)
+	- [HTTP狀態碼](#httpCodes)
+- [規格](#Specification)
+	- [格式](#format)
+	- [文件結構](#fileStructure)
+	- [資料類型](#dataTypes)
+	- [URL中之相關參考](#relativeReferences)
+	- [綱要](#schema)
 		- [OpenAPI 物件](#oasObject)
-		- [Info Object](#infoObject)
-		- [Contact Object](#contactObject)
-		- [License Object](#licenseObject)
-		- [Server Object](#serverObject)
-        - [Server Variables Object](#serverVariablesObject)
-        - [Server Variable Object](#serverVariableObject)
-		- [Components Object](#componentsObject)
-		- [Paths Object](#pathsObject)
-		- [Path Item Object](#pathItemObject)
-		- [Operation Object](#operationObject)
-		- [External Documentation Object](#externalDocumentationObject)
-		- [Parameter Object](#parameterObject)
+		- [資訊物件](#infoObject)
+		- [聯絡物件](#contactObject)
+		- [授權物件](#licenseObject)
+		- [伺服器物件](#serverObject)
+        - [伺服器變數物件](#serverVariablesObject)
+        - [伺服器變數物件](#serverVariableObject)
+		- [元件物件](#componentsObject)
+		- [路徑物件](#pathsObject)
+		- [路徑項目物件](#pathItemObject)
+		- [運算物件](#operationObject)
+		- [外部文件物件](#externalDocumentationObject)
+		- [參數物件](#parameterObject)
 		- [Request Body Object](#requestBodyObject)
-		- [Content Object](#contentObject)
-		- [Media Type Object](#mediaTypeObject)
-		- [Responses Object](#responsesObject)
-		- [Response Object](#responseObject)
-		- [Headers Object](#headersObject)
-		- [Example Object](#exampleObject)
-		- [Links Object](#linksObject)
-		- [Link Object](#linkObject)
-		- [Link Parameters Object](#linkParametersObject)
-		- [Header Object](#headerObject)
-		- [Tag Object](#tagObject)
-		- [Examples Object](#examplesObject)
-		- [Reference Object](#referenceObject)
-		- [Schema Object](#schemaObject)
-		- [XML Object](#xmlObject)
-		- [Security Scheme Object](#securitySchemeObject)
-		- [Scopes Object](#scopesObject)
-		- [Security Requirement Object](#securityRequirementObject)
-	- [Specification Extensions](#specificationExtensions)
-	- [Security Filtering](#securityFiltering)
-- [Appendix A: Revision History](#revisionHistory)
+		- [內容物件](#contentObject)
+		- [媒體類型物件](#mediaTypeObject)
+		- [回應物件](#responsesObject)
+		- [回應物件](#responseObject)
+		- [標頭物件](#headersObject)
+		- [範例物件](#exampleObject)
+		- [連結物件](#linksObject)
+		- [連結物件](#linkObject)
+		- [連結參數物件](#linkParametersObject)
+		- [標頭物件](#headerObject)
+		- [標籤物件](#tagObject)
+		- [範例物件](#examplesObject)
+		- [參考物件](#referenceObject)
+		- [綱要物件](#schemaObject)
+		- [XML物件](#xmlObject)
+		- [安全綱要物件](#securitySchemeObject)
+		- [範圍物件](#scopesObject)
+		- [安全需求物件](#securityRequirementObject)
+	- [規格擴充](#specificationExtensions)
+	- [安全篩選](#securityFiltering)
+- [附錄 A: 修訂歷史](#revisionHistory)
 	
 
 <!-- /TOC -->
 
-## Definitions
+## 定義 Definitions
 
-##### <a name="pathTemplating"></a>Path Templating
-Path templating refers to the usage of curly braces ({}) to mark a section of a URL path as replaceable using path parameters.
+##### <a name="pathTemplating"></a>路徑模板
+路徑模板係指利用大括弧({})來標計一組URL區域作為使用路徑參數的替代物。
 
-##### <a name="mediaTypes"></a>Media Types
-Media type definitions are spread across several resources.
-The media type definitions SHOULD be in compliance with [RFC 6838](http://tools.ietf.org/html/rfc6838).
+##### <a name="mediaTypes"></a>媒體類型
+媒體類型定義分散於多種資源中的。
+媒體類型定義應該符合[RFC 6838](http://tools.ietf.org/html/rfc6838).
 
-Some examples of possible media type definitions:
+以下是可能為媒體類型定義的範例:
 ```
   text/plain; charset=utf-8
   application/json
@@ -88,13 +88,13 @@ Some examples of possible media type definitions:
   application/vnd.github.v3.diff
   application/vnd.github.v3.patch
 ```
-##### <a name="httpCodes"></a>HTTP Status Codes
-The HTTP Status Codes are used to indicate the status of the executed operation. 
-The available status codes are defined by [RFC 7231](http://tools.ietf.org/html/rfc7231#section-6) and registered status codes are listed in the [IANA Status Code Registry](http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml).
+##### <a name="httpCodes"></a>HTTP狀態碼
+HTTP狀態碼用於指涉被執行運算之狀態。 
+可使用的狀態碼由[RFC 7231](http://tools.ietf.org/html/rfc7231#section-6)所定義並且已註冊狀態碼被列於[IANA Status Code Registry](http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml).
 
-## Specification
+## 規格 Specification
 
-### Format
+### 格式
 
 The files describing the RESTful API in accordance with this specification are represented as JSON objects and conform to the JSON standards.
 YAML, being a superset of JSON, can be used as well to represent an OAS file. 
