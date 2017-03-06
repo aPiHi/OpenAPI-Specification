@@ -17,17 +17,17 @@ Open API規範定義描述一支API所需之文件。
 ## 目錄
 <!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Definitions](#definitions)
+- [定義](#定義)
 	- [Path Templating](#pathTemplating)
 	- [Media Types](#mediaTypes)
 	- [HTTP Status Codes](#httpCodes)
-- [Specification](#specification)
+- [規格](#規格)
 	- [Format](#format)
 	- [File Structure](#fileStructure)
 	- [Data Types](#dataTypes)
 	- [Relative References In URLs](#relativeReferences)
 	- [Schema](#schema)
-		- [OpenAPI Object](#oasObject)
+		- [OpenAPI 物件](#oasObject)
 		- [Info Object](#infoObject)
 		- [Contact Object](#contactObject)
 		- [License Object](#licenseObject)
