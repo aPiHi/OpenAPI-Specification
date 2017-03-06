@@ -2,21 +2,19 @@
 
 #### Version 3.0.0-rc0
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt).
+本文件之關鍵字，"MUST"、"MUST NOT"、"REQUIRED"、"SHALL"、"SHALL NOT"、"SHOULD"、"SHOULD NOT"、"RECOMMENDED"、"MAY"與"OPTIONAL"的意義是根據[RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)描述內容所示。
+本文件根據[The Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)進行授權。
 
-This document is licensed under [The Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
-
-## Introduction
-
-The OpenAPI Specification (OAS) is a project used to describe and document RESTful APIs.
+## 導論
+Open API規格(OAS)是用於描述與紀錄RESTful API的專案。
 
 
-The OpenAPI Specification defines a set of files required to describe such an API.
-These files can then be used by documentation generation tools to display the API and code generation tools to generate clients in various programming languages.
+Open API規範定義描述一支API所需之文件。
+這些文件隨後可以被文件產生工具利用來呈現API與編碼產生工具用以在多種程式語言中產生客戶端。
 
-Additional utilities can also take advantage of the resulting files, such as testing tools.
+額外的工具亦能從成果文件中獲得好處，例如測試工具。
 
-## Table of Contents
+## 目錄
 <!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Definitions](#definitions)
