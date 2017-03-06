@@ -185,7 +185,7 @@ password | `string` | `password` | 用於暗示使用者介面該輸入必須被
 <a name="oasTags"></a>tags | [[Tag Object](#tagObject)] | 具額外詮釋資料規格所使用的標籤名單。標籤的順序可以被用於反射他們在剖析工具上的順序。並非所有被[Operation Object](#operationObject)所利用的標籤都必須被宣告。沒有被宣告的標籤可以隨機組織或依據工具邏輯來建置。每個名單中的標籤名必須是獨特的。
 <a name="oasExternalDocs"></a>externalDocs | [External Documentation Object](#externalDocumentationObject) | 額外外部文件
 
-這個物件可以由[規格擴充](#specificationExtensions)來擴充。 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
 #### <a name="oasVersionString"></a>OpenAPI版本字串
 
@@ -201,21 +201,20 @@ password | `string` | `password` | 用於暗示使用者介面該輸入必須被
 本物件提供有關API的詮釋資料。
 如果需要，詮釋資料可以為客戶端所使用，並且為了便利，可以顯示於編輯與文件產生工具中。
 
-##### Fixed Fields
+##### 固定欄位
 
-Field Name | Type | Description
+欄位名稱 | 類型 | 描述
 ---|:---:|---
-<a name="infoTitle"></a>title | `string` | **Required.** The title of the application.
-<a name="infoDescription"></a>description | `string` | A short description of the application. [CommonMark syntax](http://spec.commonmark.org/) can be used for rich text representation.
-<a name="infoTermsOfService"></a>termsOfService | `string` | A URL to the Terms of Service for the API.
-<a name="infoContact"></a>contact | [Contact Object](#contactObject) | The contact information for the exposed API.
-<a name="infoLicense"></a>license | [License Object](#licenseObject) | The license information for the exposed API.
-<a name="infoVersion"></a>version | `string` | **Required.** The version of the API definition (which is distinct from the OpenAPI specification version or the API implementation version).
+<a name="infoTitle"></a>title | `string` | **必要**。 應用標題。
+<a name="infoDescription"></a>description | `string` | 應用的簡短描述。富文字呈現可以使用[CommonMark syntax](http://spec.commonmark.org/)。
+<a name="infoTermsOfService"></a>termsOfService | `string` | API服務條款的URL。
+<a name="infoContact"></a>contact | [Contact Object](#contactObject) | 被揭露API的聯絡資訊。
+<a name="infoLicense"></a>license | [License Object](#licenseObject) | 被揭露API的授權資訊。
+<a name="infoVersion"></a>version | `string` | **必要**。 API定義的版本(與OpenAPI規格版本或API執行版本有所區別)。
 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
-
-##### Info Object Example:
+##### 資訊物件範例:
 
 ```json
 {
@@ -249,21 +248,21 @@ license:
 version: 1.0.1
 ```
 
-#### <a name="contactObject"></a>Contact Object
+#### <a name="contactObject"></a>聯絡物件
 
-Contact information for the exposed API.
+被揭露API的聯絡資訊。
 
-##### Fixed Fields
+##### 固定欄位
 
-Field Name | Type | Description
+欄位名稱 | 類型 | 描述
 ---|:---:|---
-<a name="contactName"></a>name | `string` | The identifying name of the contact person/organization.
-<a name="contactUrl"></a>url | `string` | The URL pointing to the contact information. MUST be in the format of a URL.
-<a name="contactEmail"></a>email | `string` | The email address of the contact person/organization. MUST be in the format of an email address.
+<a name="contactName"></a>name | `string` | 聯絡人/組織的確定名稱。
+<a name="contactUrl"></a>url | `string` | 指向聯絡資訊的URL。必須是URL格式。
+<a name="contactEmail"></a>email | `string` | 聯絡人/組織的電子郵件地址。必須是電子郵件地址格式。
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
-##### Contact Object Example:
+##### 聯絡物件範例:
 
 ```json
 {
@@ -279,20 +278,20 @@ url: http://www.example.com/support
 email: support@example.com
 ```
 
-#### <a name="licenseObject"></a>License Object
+#### <a name="licenseObject"></a>授權物件
 
-License information for the exposed API.
+被揭露API的授權資訊。
 
-##### Fixed Fields
+##### 固定欄位
 
-Field Name | Type | Description
+欄位名稱 | 類型 | 描述
 ---|:---:|---
-<a name="licenseName"></a>name | `string` | **Required.** The license name used for the API.
-<a name="licenseUrl"></a>url | `string` | A URL to the license used for the API. MUST be in the format of a URL.
+<a name="licenseName"></a>name | `string` | **必要**。 API使用之授權名稱。
+<a name="licenseUrl"></a>url | `string` | 指向用於API授權之URL。必須是URL格式。
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
-##### License Object Example:
+##### 授權物件範例:
 
 ```json
 {
@@ -306,7 +305,7 @@ name: Apache 2.0
 url: http://www.apache.org/licenses/LICENSE-2.0.html
 ```
 
-#### <a name="serverObject"></a>Server Object
+#### <a name="serverObject"></a>伺服器物件
 
 An object representing a Server.
 
