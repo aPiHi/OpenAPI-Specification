@@ -307,28 +307,28 @@ url: http://www.apache.org/licenses/LICENSE-2.0.html
 
 #### <a name="serverObject"></a>伺服器物件
 
-An object representing a Server.
+代表一個伺服器的物件。
 
-##### Fixed Fields
+##### 固定欄位
 
-Field Name | Type | Description
+欄位名稱 | 類型 | 描述
 ---|:---:|---
-<a name="serverUrl"></a>url | `string` | A URL to the target host.  This URL supports Server Variables and may be relative, to indicate that the host location is relative to the location where the OpenAPI definition is being served. Variable substitutions will be made when a variable is named in `{`brackets`}`.
-<a name="serverDescription"></a>description | `string` | An optional string describing the host designated by the URL.
-<a name="serverVariables"></a>variables | [Server Variables Object](#serverVariablesObject) | An object holding variables for substitution in the URL template.
+<a name="serverUrl"></a>url | `string` | 指向目標主機之URL。該URL支援伺服器變數(Server Variables)並且可以是相對的，來指涉主機位置與服務OpenAPI定義之相對位置。當變數在`{`括號`}`中被命名，則變數替代物將被製出。
+<a name="serverDescription"></a>description | `string` | 一組描述由URL指定主機的可選擇字串。
+<a name="serverVariables"></a>variables | [Server Variables Object](#serverVariablesObject) | 保有針對URL模組替代物變數的物件。
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
-##### Server Object Example
+##### 伺服器物件範例
 
-A single server would be described as:
+單一伺服器將被描述為:
 
 ```yaml
 url: https://development.gigantic-server.com/v1
 description: Development server
 ```
 
-The following shows how multiple servers can be described, for example, at the OpenAPI Object's `servers`(#oasServers):
+下列顯示多重伺服器如何被描述，例如在OpenAPI物件的`servers`(#oasServers):
 
 ```yaml
 servers:
@@ -340,7 +340,7 @@ servers:
   description: Production server
 ```
 
-The following shows how variables can be used for a server configuration:
+下列顯示變數如何針對伺服器組態使用變數:
 
 ```yaml
 servers:
@@ -361,18 +361,18 @@ servers:
       default: v2
 ```
 
-#### <a name="serverVariablesObject"></a>Server Variables Object
+#### <a name="serverVariablesObject"></a>伺服器變數物件
 
-##### Patterned Fields
+##### 樣態欄位
 
-Field Pattern | Type | Description
+欄位樣態 | 類型 | 描述
 ---|:---:|---
-<a name="serverVariablesName"></a> {name} | [Server Variable Object](#serverVariableObject) | A variable to be used for substitution in a Server's URL template.
+<a name="serverVariablesName"></a> {name} | [Server Variable Object](#serverVariableObject) | 在一伺服器URL模組中用於表示替代物的變數。
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
 
-#### <a name="serverVariableObject"></a>Server Variable Object
+#### <a name="serverVariableObject"></a>伺服器變數物件
 
 An object representing a Server Variable for server URL template substituion.
 
