@@ -925,38 +925,36 @@ url: https://example.com
 <a name="parameterExample"></a>example | [Example Object](#exampleObject) <span>&#124;</span> [Reference Object](#referenceObject) | 內容類型的範例。在範例陣列中的每一個範例應該在正確的格式中，一如指定參數編碼。`examples`物件是與`example`物件相互排斥的。此外，如果引用包含一個範例的`schema`，`examples`值應該_override_ 由該綱要提供的範例。
 
 針對更複雜的場景，一項[內容物件](#contentObject)可以被用於定義媒體類型以及參數的綱要。  
-此選項是This option is mutually exclusive with the simple scenario above. 
-When `example` or `examples` are provided in conjunction with the `schema` object, 
-the example must follow the prescribed serialization strategy for the parameter.
+此選項與前述之簡單場景互為排斥。 
+當`example`或`examples`與`schema`物件連接提供時，該範例必須遵照規定的參數序列化策略。
 
 
-Field Name | Type | Description
+欄位名稱 | 類型 | 描述
 ---|:---:|---
-<a name="parameterContent"></a>content | [Content Object](#contentObject) | The content of the parameter.
-
-In order to support common ways of serializing simple parameters, a set of `style` values are defined.
+<a name="parameterContent"></a>content | [Content Object](#contentObject) | 參數內容。
+為了支援序列化簡單參數共通方式，一組`style`值要被定義。
 
 `style` | [`type`](#dataTypeType) |  `in` | Comments
 ----------- | ------ | -------- | --------
-matrix |  `primitive`, `array`, `object` |  `path` | Path-style parameters defined by [RFC6570](https://tools.ietf.org/html/rfc6570#section-3.2.7) 
-label | `primitive`, `array`, `object` |  `path` | Label style parameters defined by [RFC6570](https://tools.ietf.org/html/rfc6570#section-3.2.5)
-form |  `primitive`, `array`, `object` |  `query`, `cookie` | Form style parameters defined by [RFC6570](https://tools.ietf.org/html/rfc6570#section-3.2.8). This option replaces `collectionFormat` with a `csv` value. 
-simple | `array` | `path`, `header` | Simple style parameters defined by [RFC6570](https://tools.ietf.org/html/rfc6570#section-3.2.2).
-spaceDelimited | `array` | `query` | Space separated array values. This option replaces `collectionFormat` equal to `ssv`. 
-pipeDelimited | `array` | `query` | Pipe separated array values. This option replaces `collectionFormat` equal to `pipes`.
-deepObject | `object` | `query` | Provides a simple way of rendering nested objects using form parameters.
+matrix |  `primitive`, `array`, `object` |  `path` | 由[RFC6570](https://tools.ietf.org/html/rfc6570#section-3.2.7)定義之路徑式參數 
+label | `primitive`, `array`, `object` |  `path` | 由[RFC6570](https://tools.ietf.org/html/rfc6570#section-3.2.5)定義之標籤式參數
+form |  `primitive`, `array`, `object` |  `query`, `cookie` | 由[RFC6570](https://tools.ietf.org/html/rfc6570#section-3.2.8)定義之表單式參數。此選項以一個`csv`值取代`collectionFormat`。 
+simple | `array` | `path`, `header` | 由[RFC6570](https://tools.ietf.org/html/rfc6570#section-3.2.2)定義之簡易式參數。
+spaceDelimited | `array` | `query` | 空格分隔陣列值。此選項取代`collectionFormat`等同於`ssv`。 
+pipeDelimited | `array` | `query` | Pipe分隔陣列值。此選項取代`collectionFormat`等同於`pipes`。
+deepObject | `object` | `query` | 提供一個演繹使用表格參數巢狀物件的簡易方式。
 
 
-##### Style Examples
+##### 形式範例
 
-Assuming a parameter named `color` with one of the following values:
+假定一個命名為`color`的參數具備下列某一項值:
 
 ```
    string -> "blue"
    array -> ["blue","black","brown"]
    object -> { "R": 100, "G": 200, "B": 150 }
 ```
-The following table shows examples of how those values would be rendered.
+下列表格顯示這些值將如何被演繹的範例。
 
 [`style`](#dataTypeFormat) | `explode` | `empty` | `string` | `array` | `object`
 ----------- | ------ | -------- | -------- | --------|-------
@@ -972,11 +970,11 @@ spaceDelimited | false | n/a | n/a | blue%20black%20brown | R%20100%20G%20200%20
 pipeDelimited | false | n/a | n/a | blue\|black\|brown | R\|100\|G\|200|G\|150
 deepObject | true | n/a | n/a | n/a | color[R]=100&color[G]=200&color[B]=150
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
-##### Parameter Object Examples
+##### 參數物件範例
 
-A header parameter with an array of 64 bit integer numbers:
+一個具有64位元整數陣列的標頭參數:
 
 ```json
 {
@@ -1008,7 +1006,7 @@ schema:
 style: commaDelimited
 ```
 
-A path parameter of a string value:
+一組字串值的路徑參數:
 ```json
 {
   "name": "username",
@@ -1030,7 +1028,7 @@ schema:
   type: string
 ```
 
-An optional query parameter of a string value, allowing multiple values by repeating the query parameter:
+一組可選擇字串值的查詢參數，藉由重覆查詢參數允許多類數值:
 ```json
 {
   "name": "id",
@@ -1061,7 +1059,7 @@ style: form
 explode: true
 ```
 
-A free-form query parameter, allowing undefined parameters of a specific type:
+一組自由形式查詢參數，允許一特定類型的非定義參數:
 ```json
 {
   "in": "query",
@@ -1086,23 +1084,22 @@ schema:
 style: form
 ```
 
-#### <a name="requestBodyObject"></a>Request Body Object
+#### <a name="requestBodyObject"></a>Request Body物件
+描述單一request body。
 
-Describes a single request body.
-
-##### Fixed Fields
-Field Name | Type | Description
+##### 固定欄位
+欄位名稱 | 類型 | 描述
 ---|:---:|---
-<a name="requestBodyDescription"></a>description | `string` | A brief description of the request body. This could contain examples of use.  [CommonMark syntax](http://spec.commonmark.org/) can be used for rich text representation.
-<a name="requestBodyContent"></a>content | [Content Object](#contentObject) | The content of the request body.
-<a name="requestBodyRequired"></a>required | `boolean` | Determines if the request body is required in the request. Defaults to `true`.
+<a name="requestBodyDescription"></a>description | `string` | Request body的簡單描述。可以包含使用範例。為了富文字呈現，可以使用[CommonMark syntax](http://spec.commonmark.org/)。
+<a name="requestBodyContent"></a>content | [Content Object](#contentObject) | Request body的內容。
+<a name="requestBodyRequired"></a>required | `boolean` | 決定request body是否在要求中是必要的。預設為`true`。
 
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
-##### Request Body Examples
+##### Request Body範例
 
-A request body with a referenced model definition.
+具有引用模型定義的request body。
 ```json
 {
   "description": "user to add to the system",
@@ -1152,7 +1149,7 @@ content:
       $ref: 'http://foo.bar/examples/user-example.whatever'
 ```
 
-A body parameter that is an array of string values:
+為一組字串值陣列的body參數:
 ```json
 {
   "description": "user to add to the system",
@@ -1181,14 +1178,13 @@ content:
 ```
 
 
-#### <a name="contentObject"></a>Content Object
+#### <a name="contentObject"></a>內容物件
 
-Describes a set of supported media types. A Content Object can be used in [Request Body Object](#requestBody),
-[Parameter Objects](#parameterObject), [Header Objects](#headerObject), and [Response Objects](#responseObject).
+描述一組被支援的媒體類型設定。一組內容物件可以被用於[Request Body Object](#requestBody)，[Parameter Objects](#parameterObject)，[Header Objects](#headerObject)與[Response Objects](#responseObject).
 
-Each key in the Content Object is the media type of the [Media Type Object](#mediaTypeObject).
+在內容物件中的每個鑰匙是[Media Type Object](#mediaTypeObject)的媒體類型。
 
-##### Content Examples
+##### 內容範例
 
 ```js
 "content": {
@@ -1241,20 +1237,20 @@ content:
       - "Bob,Diane,Mary,Bill"
 ```
 
-#### <a name="mediaTypeObject"></a>Media Type Object
-Each Media Type Object provides schema and examples for a the media type identified by its key.  Media Type Objects can be used in a [Content Object](#contentObject).   
+#### <a name="mediaTypeObject"></a>媒體類型物件
+每一個媒體類型物件由其鑰匙指定之媒體類型提供綱要與範例。媒體類型物件可以用於一組[內容物件](#contentObject)。   
 
-##### Fixed Fields
-Field Name | Type | Description
+##### 固定欄位
+欄位名稱 | 類型 | 描述
 ---|:---:|---
-<a name="mediaTypeSchema"></a>schema | [Schema Object](#schemaObject) <span>&#124;</span> [Reference Object](#referenceObject)] | The schema defining the type used for the request body.
-<a name="mediaTypeExamples"></a>examples | [[Example Object](#exampleObject) <span>&#124;</span> [Reference Object](#referenceObject)] | Examples of the media type.  Each example in the Examples array SHOULD be in the correct format as specified in the media type.  The `examples` object is mutually exclusive to the `example` object.  Furthermore, if referencing a `schema` which contains an example, the `examples` value SHALL _override_ the example provided by the schema.
-<a name="mediaTypeExample"></a>example | [Example Object](#exampleObject) <span>&#124;</span> [Reference Object](#referenceObject) | Example of the media type.  The example object SHOULD be in the correct format as specified in the media type.  The `example` object is mutually exclusive to the `examples` object.  Furthermore, if referencing a `schema` which contains an example, the `example` value SHALL _override_ the the example provided by the schema.
-<a name="mediaTypeEncoding"></a>encoding | [Encoding Object](#encodingObject) | Encoding of the media type.  The encoding object SHOULD only apply to `requestBody` objects when the content type is `multipart`.
+<a name="mediaTypeSchema"></a>schema | [Schema Object](#schemaObject) <span>&#124;</span> [Reference Object](#referenceObject)] | 定義使用於request body之類型的綱要。
+<a name="mediaTypeExamples"></a>examples | [[Example Object](#exampleObject) <span>&#124;</span> [Reference Object](#referenceObject)] | 媒體類型範例。在範例陣列中的每一個範例應該在正確的格式中，如在媒體類型中被指定一般。`examples`物件是與`example`物件相互排斥的。此外，如果引用包含一個範例的`schema`，`examples`值應該_override_ 由該綱要提供的範例。
+<a name="mediaTypeExample"></a>example | [Example Object](#exampleObject) <span>&#124;</span> [Reference Object](#referenceObject) | 媒體類型範例。在範例陣列中的每一個範例應該在正確的格式中，如在媒體類型中被指定一般。`examples`物件是與`example`物件相互排斥的。此外，如果引用包含一個範例的`schema`，`examples`值應該_override_ 由該綱要提供的範例。
+<a name="mediaTypeEncoding"></a>encoding | [Encoding Object](#encodingObject) | 媒體類型的編碼。當內容類型為`multipart`時，編碼物件應該僅應用於`requestBody`物件。
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
-##### Media Type Examples
+##### 媒體類型範例
 
 ```js
 {
@@ -1286,10 +1282,10 @@ application/json:
 
 ```
 
-##### Considerations for file uploads
+##### 文件上載考量
 
-In contrast with the 2.0 specification, describing `file` input/output content in OpenAPI is 
-described with the same semantics as any other schema type. Specifically:
+與2.0規格相反，在OpenAPI中描述`file`輸入/輸出，如同任一其他綱要類型，是與相同語意同被描述的。
+特別地是:
 
 ```yaml
 # content transferred with base64 encoding
@@ -1303,9 +1299,9 @@ schema:
   format: binary
 ```
 
-Note that the above examples apply to either input payloads (i.e. file uploads) or response payloads.
+注意，前述範例不是應用於輸入酬載(例如，文件上載)就是回應酬載。
 
-A `requestBody` example for submitting a file in a `POST` operation therefore may look like the following:
+一個針對提交一份文件進入`POST`運算的`requestBody`範例可能看似如下:
 
 ```yaml
 requestBody:
@@ -1318,7 +1314,7 @@ requestBody:
         format: binary
 ```
 
-In addition, specific media types may be specified:
+此外，特定媒體類型可能被指定為:
 
 ```yaml
 # multiple, specific media types may be specified:
@@ -1331,10 +1327,9 @@ requestBody:
         format: binary
 ```
 
-##### Support for x-www-form-urlencoded request bodies
+##### 支援x-www-form-urlencoded request bodies
 
-To submit content using form url encoding via RFC 1866, the following
-definition may be used:
+提交藉由RFC 1866編碼的表單url內容，可用下列定義:
 
 ```yaml
 requestBody:
@@ -1352,22 +1347,22 @@ requestBody:
             properties: {}
 ```
 
-Note that in the above example, the contents in the `requestBody` MUST be stringified per RFC1866 when being passed to the server.  In addition, the `address` field complex object will be stringified as well.
+注意，在前述範例中，當正在傳遞到伺服器時，在`requestBody`的內容類型必須是每筆RFC1866字串化的。此外，`address`欄位複雜物件也將被字串化。
 
-When passing complex objects in the `x-www-form-urlencoded` content type, the default serialization strategy of such properties is described in the `parameterContent` section as `form`.
+當在`x-www-form-urlencoded`內容類型中傳遞複雜物件時，如此屬性的預設序列化策略，如同`form`，是被描述於`parameterContent`區域中的。
 
-##### Special Considerations for `multipart` content
+##### 針對`multipart`內容的特別考量
 
-It is common to use `multipart/form-data` as a `Content-Type` when transferring request bodies to operations.  In contrast to 2.0, a `schema` is required to define the input parameters to the operation when using `multipart` content.  This allows complex structures as well as supports mechanisms for multiple file uploads.
+當傳輸request bodies至運算時，通常利用`multipart/form-data`作為一組`Content-Type`。與2.0相反的是，當使用`multipart`內容時，要有一組`schema`來定義輸入參數至運算中。為了多種文件上載，允許複雜結構以及支援機制。
 
-When passing in `multipart` types, boundaries MAY be used to separate sections of the content being transferred--thus, the following default `Content-Type`s are defined for `multipart/*`:
+當在`multipart`類型中傳遞，臨界可以被用於分隔正在被傳輸內容的區域--因此，隨後的預設`Content-Type`是針對`multipart/*`而被定義的:
 
-* If the property is a primitive, or an array of primitive values, the default Content-Type is `text/plain`
-* If the property is complex, or an array of complex values, the default Content-Type is `application/json`
-* If the property is a `type: string` with `format: binary` or `format: base64` (aka a file object), the default Content-Type is `application/octet-stream`
+* 如果屬性是基本的，或一組基本值陣列，則預設Content-Type是`text/plain`
+* 如果屬性是複雜的，或一組複雜值陣列，則預設Content-Type是`application/json`
+* 如果屬性是一`type: string` with `format: binary` or `format: base64` (aka a file object)，則預設Content-Type是`application/octet-stream`
 
 
-Examples:
+範例:
 
 ```yaml
 requestBody:
