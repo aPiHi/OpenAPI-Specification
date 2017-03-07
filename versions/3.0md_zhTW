@@ -1403,9 +1403,9 @@ requestBody:
 ##### 態樣欄位
 欄位態樣 | 類型 | 描述
 ---|:---:|---
-<a name="encodingProperty"></a>{property} | [Encoding Property Object](#encodingPropertyObject) | 屬性名稱The property name to which the special encoding are applied.  This field MUST exist in the schema as a property.
+<a name="encodingProperty"></a>{property} | [Encoding Property Object](#encodingPropertyObject) | 針對那些被用於特殊編碼的屬性名稱。此欄位必須在綱要中作為一屬性存在。
 
-##### Encoding Object Example
+##### 編碼物件範例
 
 ```yaml
 requestBody:
@@ -1440,45 +1440,42 @@ requestBody:
           contentType: image/png, image/jpeg
 ```
 
-#### <a name="encodingPropertyObject"></a>Encoding Property Object
+#### <a name="encodingPropertyObject"></a>編碼屬性物件
 
-A single encoding definition applied to a single schema property.
+應用於單一綱要屬性的單一編碼定義。
 
-##### Fixed Fields
-Field Name | Type | Description
+##### 固定欄位
+欄位名稱 | 類型 | 描述
 ---|:---:|---
-<a name="encodingContentType"></a>contentType | `string` | The Content-Type to use for encoding a specific property. Default value depends on the property type: for `string` with `format` being `binary` - `application/octet-stream`; for other primitive types - `plain/text`; for `object` - `application/json`; for `array` - the default is defined based on the inner type.
-<a name="encodingHeaders"></a>Headers | `object` | A string map allowing additional information to be provided as headers, for example `Content-Disposition`.  Note `Content-Type` is described separately and will be ignored from this section.
-<a name="encodingStyle"></a>style | `string` | The Content-Type to use for encoding a specific property.  See (#parameterContent) for details on the [`style`](#parameterStyle) property. The behavior follows the same values allowed for `query` parameters, including default values.
-<a name="encodingExplode"></a>explode | `boolean` | When this is true, property values of type `array` or `object` generate separate parameters for each value of the array, or key-value-pair of the map.  For other types of properties this property has no effect. When [`style`](#encodingStyle) is `form`, the default value is `true`. For all other styles, the default value is `false`.
+<a name="encodingContentType"></a>contentType | `string` | Content-Type用於編碼一特定屬性。預設值依照屬性類型: for `string` with `format` being `binary` - `application/octet-stream`; for other primitive types - `plain/text`; for `object` - `application/json`; for `array` - the default is defined based on the inner type.
+<a name="encodingHeaders"></a>Headers | `object` | 一個允許額外資訊的字串地圖被提供為標頭，例如`Content-Disposition`。注意`Content-Type`是被分隔描述的並且從此區域中被忽略。
+<a name="encodingStyle"></a>style | `string` | Content-Type用於編碼一特定屬性。在[`style`](#parameterStyle)屬性上的細節請見(#parameterContent)。 行為遵循針對`query`參數所允許的相同值，包含預設值。
+<a name="encodingExplode"></a>explode | `boolean` | 當此為真時，類型`array`的屬性值或`object`針對陣列的每個值或地圖的鍵值對產生分隔參數。對其他屬性類型，此屬性沒有作用。當[`style`](#encodingStyle)是`form`時，預設值為`true`。對所有其他形式，預設值為`false`。
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
-#### <a name="responsesObject"></a>Responses Object
+#### <a name="responsesObject"></a>回應物件
 
-A container for the expected responses of an operation.
-The container maps a HTTP response code to the expected response.
-It is not expected from the documentation to necessarily cover all possible HTTP response codes, since they may not be known in advance. However, it is expected 
-from the documentation to cover a successful operation response and any 
-known errors.
+針對一項運算預期回應的容器。
+該容器繪製一項HTTP回應碼至預期的回應。
+從文件中必然涵蓋所有可能的HTTP回應碼是不被預期的，只要他們不在事先已知。
+然而，從文件涵蓋一組成功的運算回應和任何已知的錯誤是被預期的。
 
-The `default` MAY be used as a default response object for all HTTP codes 
-that are not covered individually by the specification.
+`default`可以被用來作為針對所有不被規範個別涵蓋的HTTP碼的預設回應物件。
 
-The `Responses Object` MUST contain at least one response code, and it 
-SHOULD be the response for a successful operation call.
+`Responses Object`必須包含至少一項回應碼，並且應該為一項成功運算呼叫的回應。
 
-##### Fixed Fields
-Field Name | Type | Description
+##### 固定欄位
+欄位名稱 | 類型 | 描述
 ---|:---:|---
-<a name="responsesDefault"></a>default | [Response Object](#responseObject) <span>&#124;</span> [Reference Object](#referenceObject) | The documentation of responses other than the ones declared for specific HTTP response codes.
-It can be used to cover undeclared responses.
-[Reference Object](#referenceObject) can be used to link to a response that is defined at the [OpenAPI Object's responses](#oasResponses) section.
+<a name="responsesDefault"></a>default | [Response Object](#responseObject) <span>&#124;</span> [Reference Object](#referenceObject) | 除了針對特定HTTP回應碼宣告外的回應文件。
+可以被用於涵蓋未宣告回應。
+[Reference Object](#referenceObject)可以用於連結一項在[OpenAPI Object's responses](#oasResponses)區域上被定義的回應。
 
-##### Patterned Fields
-Field Pattern | Type | Description
+##### 態樣欄位
+欄位態樣 | 類型 | 描述
 ---|:---:|---
-<a name="responsesCode"></a>[HTTP Status Code](#httpCodes) | [Response Object](#responseObject) <span>&#124;</span> [Reference Object](#referenceObject) | Any [HTTP status code](#httpCodes) can be used as the property name (one property per HTTP status code). Describes the expected response for that HTTP status code.  [Reference Object](#referenceObject) can be used to link to a response that is defined at the [OpenAPI Object's responses](#oasResponses) section. This field MUST be quoted for compatibility between JSON and YAML (i.e. "200"), and MAY contain the uppercase character, `X` to designate a wildcard, such as `2XX` to represent all response codes between `[200-299]`.
+<a name="responsesCode"></a>[HTTP Status Code](#httpCodes) | [Response Object](#responseObject) <span>&#124;</span> [Reference Object](#referenceObject) | 任一[HTTP status code](#httpCodes)可以被用為屬性名稱(一屬性一HTTP狀態碼)。描述該HTTP狀態碼的預期回應。[Reference Object](#referenceObject)可用於連結一項在[OpenAPI Object's responses](#oasResponses)區域上被定義的回應。為了JSON與YAML間的共通性，此欄位必須被引述(i.e. "200")，並且可以包含大寫字元，`X`指定一個使用型態通配字元，例如`2XX`為表示所有在`[200-299]`.
 
 
 This object can be extended with [Specification Extensions](#specificationExtensions). 
