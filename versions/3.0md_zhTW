@@ -635,24 +635,24 @@ components:
 
 Field Name | Type | Description
 ---|:---:|---
-<a name="pathItemRef"></a>$ref | `string` | Allows for an external definition of this path item. The referenced structure MUST be in the format of a [Path Item Object](#pathItemObject). If there are conflicts between the referenced definition and this Path Item's definition, the behavior is *undefined*.
-<a name="pathItemSummary"></a>summary| `string` | An optional, string summary, intended to apply to all operations in this path.
-<a name="pathItemDescription"></a>description | `string` | An optional, string description, intended to apply to all operations in this path.
-<a name="pathItemGet"></a>get | [Operation Object](#operationObject) | A definition of a GET operation on this path.
-<a name="pathItemPut"></a>put | [Operation Object](#operationObject) | A definition of a PUT operation on this path.
-<a name="pathItemPost"></a>post | [Operation Object](#operationObject) | A definition of a POST operation on this path.
-<a name="pathItemDelete"></a>delete | [Operation Object](#operationObject) | A definition of a DELETE operation on this path.
-<a name="pathItemOptions"></a>options | [Operation Object](#operationObject) | A definition of a OPTIONS operation on this path.
-<a name="pathItemHead"></a>head | [Operation Object](#operationObject) | A definition of a HEAD operation on this path.
-<a name="pathItemPatch"></a>patch | [Operation Object](#operationObject) | A definition of a PATCH operation on this path.
-<a name="pathItemTrace"></a>trace | [Operation Object](#operationObject) | A definition of a TRACE operation on this path.
-<a name="pathItemServers"></a>servers | [Server Object](#serverObject) | An alternative `server` array to service all operations in this path.  
-<a name="pathItemParameters"></a>parameters | [[Parameter Object](#parameterObject) <span>&#124;</span> [Reference Object](#referenceObject)] | A list of parameters that are applicable for all the operations described under this path. These parameters can be overridden at the operation level, but cannot be removed there. The list MUST NOT include duplicated parameters. A unique parameter is defined by a combination of a [name](#parameterName) and [location](#parameterIn). The list can use the [Reference Object](#referenceObject) to link to parameters that are defined at the [OpenAPI Object's parameters](#oasParameters). 
+<a name="pathItemRef"></a>$ref | `string` | 允許該路徑項目的外部定義。參考架構必須是一項[路徑項目物件](#pathItemObject)的格式。如果在參考定義與本路徑項目定義間有衝突，則行為是*undefined*。
+<a name="pathItemSummary"></a>summary| `string` | 一個可選擇性，字串概要，意欲應用至本路徑之所有運算。
+<a name="pathItemDescription"></a>description | `string` | 一個可選擇性，字串概要，意欲應用至本路徑之所有運算。
+<a name="pathItemGet"></a>get | [Operation Object](#operationObject) | 在本路徑上一個取得(GET)運算的定義。
+<a name="pathItemPut"></a>put | [Operation Object](#operationObject) | 在本路徑上一個放置(PUT)運算的定義。
+<a name="pathItemPost"></a>post | [Operation Object](#operationObject) | 在本路徑上一個張貼(POST)運算的定義。
+<a name="pathItemDelete"></a>delete | [Operation Object](#operationObject) | 在本路徑上一個刪除(DELET)運算的定義。
+<a name="pathItemOptions"></a>options | [Operation Object](#operationObject) | 在本路徑上一個選項(OPTIONS)運算的定義。
+<a name="pathItemHead"></a>head | [Operation Object](#operationObject) | 在本路徑上一個首部(HEAD)運算的定義。
+<a name="pathItemPatch"></a>patch | [Operation Object](#operationObject) | 在本路徑上一個修補程式(PATCH)運算的定義。
+<a name="pathItemTrace"></a>trace | [Operation Object](#operationObject) | 在本路徑上一個追蹤(TRACE)運算的定義。
+<a name="pathItemServers"></a>servers | [Server Object](#serverObject) | 一個服務本路徑上所有運算之替代`server`陣列。  
+<a name="pathItemParameters"></a>parameters | [[Parameter Object](#parameterObject) <span>&#124;</span> [Reference Object](#referenceObject)] | 一份可以在本路徑下所有被描述運算中可應用的參數名單。這些參數可以在運算層次上被覆寫，但是不能被移除。該名單必須不含重複的參數。一個獨特的參數由[名稱](#parameterName)與[位置](#parameterIn)的結合所定義。該名單可以用[參考物件](#referenceObject)來連結至在[OpenAPI物件參數](#oasParameters)上被定義的參數。 
 
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
-##### Path Item Object Example
+##### 路徑項目物件範例
 
 ```json
 {
@@ -733,13 +733,13 @@ parameters:
     type: string  
 ```
 
-#### <a name="operationObject"></a>Operation Object
+#### <a name="operationObject"></a>運算物件
 
-Describes a single API operation on a path.
+描述在一路徑上單一API運算。
 
-##### Fixed Fields
+##### 固定欄位
 
-Field Name | Type | Description
+欄位名稱 | 類型 | 描述
 ---|:---:|---
 <a name="operationTags"></a>tags | [`string`] | A list of tags for API documentation control. Tags can be used for logical grouping of operations by resources or any other qualifier.
 <a name="operationSummary"></a>summary | `string` | A short summary of what the operation does. For maximum readability in editing or documentation generation tools, this field SHOULD be less than 120 characters.
