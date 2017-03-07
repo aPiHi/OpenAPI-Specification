@@ -129,7 +129,7 @@ API的OAS表示法是由單一文件製成。
 
 ### <a name="dataTypes"></a>資料類型
 
-在OAS中的基本資料類型是依據[JSON Schema Specification Wright Draft 00](https://tools.ietf.org/html/draft-wright-json-schema-00#section-4.2)支援的類型而定。 
+在OAS中的資料類型是依據[JSON Schema Specification Wright Draft 00](https://tools.ietf.org/html/draft-wright-json-schema-00#section-4.2)支援的類型而定。 
 注意，作為一種類型的`integer`是同樣被支援的並且無需分數或指數皆被定義為一JSON數字。 
 `null`不支援作為一組數值。 
 模型使用JSON Schema Specification Wright Draft 00的一擴充子集[Schema Object](#schemaObject)來描述。
@@ -374,41 +374,38 @@ servers:
 
 #### <a name="serverVariableObject"></a>伺服器變數物件
 
-An object representing a Server Variable for server URL template substituion.
+代表伺服器URL模組替代物的伺服器變數的物件。
 
-Field Name | Type | Description
+欄位名稱 | 類型 | 描述
 ---|:---:|---
-<a name="serverVariableEnum"></a>enum | [`primitive`] | An enumeration of primitive type values to be used if the substitution options are from a limited set.
-<a name="serverVariableDefault"></a>default | `primitive` |  **Required.** The default value to use for substitution if an alternate value is not specified, and will be sent if an alternative value is _not_ supplied. Unlike the [Schema Object's](#schemaObject) `default`, this value MUST be provided by the consumer.
-<a name="serverVariableDescription"></a>description | `string` | An optional description for the server variable.
+<a name="serverVariableEnum"></a>enum | [`primitive`] | 如果替代物選項來自一組限制的設定，則會使用基本類型值的列舉。
+<a name="serverVariableDefault"></a>default | `primitive` |  **必要**。 如果備用值沒有被指定，則使用預設值為代替，並且如果沒有供給備用值則會被發送。與[綱要物件](#schemaObject)的`default`不同，這個值必須由消費者提供。
+<a name="serverVariableDescription"></a>description | `string` | 一項針對伺服器變數的可選擇性描述。
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
-#### <a name="componentsObject"></a>Components Object
+#### <a name="componentsObject"></a>元件物件
+保有針對OAS不同面向的一組可復用物件。
+所有在元件物件定義中的物件，除非他們明顯地將被元件物件外的屬性所引用，否則不對API起作用。
 
-Holds a set of reusable objects for different aspects of the OAS.
-All objects defined within the components object will have no effect on the API unless they are explicitly referenced from properties outside the components object.
 
-
-##### Fixed Fields
-
-Field Name | Type | Description
+##### 固定欄位
+欄位名稱 | 類型 | 描述
 ---|:---|---
-<a name="componentsSchemas"></a> schemas | Map[`string`, [Schema Object](#schemaObject)] | An object to hold reusable [Schema Objects](#schemaObject).
-<a name="componentsResponses"></a> responses | Map[`string`, [Response Object](#responseObject)] | An object to hold reusable [Response Objects](#responseObject).
-<a name="componentsParameters"></a> parameters | Map[`string`, [Parameter Object](#parameterObject)] | An object to hold reusable [Parameter Objects](#parameterObject).
-<a name="componentsExamples"></a> examples | Map[`string`, [Example Object](#exampleObject)] | An object to hold reusable [Example Objects](#exampleObject).
-<a name="componentsRequestBodies"></a> requestBodies | Map[`string`, [Request Body Object](#requestBodyObject)] | An object to hold reusable [Request Body Objects](#requestBodyObject).
-<a name="componentsHeaders"></a> headers | Map[`string`, [Header object](#headerObject)] | An object to hold reusable [Header objects](#headerObject).
-<a name="componentsSecuritySchemes"></a> securitySchemes| Map[`string`, [Security Scheme Object](#securitySchemeObject)] | An object to hold reusable [Security Scheme Objects](#securitySchemeObject).
-<a name="componentsLinks"></a> links | Map[`string`, [Link Object](#linkObject)] | An object to hold reusable [Link Objects](#linkObject).
-<a name="componentsCallbacks"></a> callbacks | Map[`string`, [Callback Object](#callbackObject)] | An object to hold reusable [Callback Objects](#callbackObject).
+<a name="componentsSchemas"></a> schemas | Map[`string`, [Schema Object](#schemaObject)] | 保有可復用[綱要物件](#schemaObject)的物件。
+<a name="componentsResponses"></a> responses | Map[`string`, [Response Object](#responseObject)] | 保有可復用[回應物件](#responseObject)的物件。
+<a name="componentsParameters"></a> parameters | Map[`string`, [Parameter Object](#parameterObject)] | 保有可復用[參數物件](#parameterObject)的物件。
+<a name="componentsExamples"></a> examples | Map[`string`, [Example Object](#exampleObject)] | 保有可復用 [範例物件](#exampleObject)的物件。
+<a name="componentsRequestBodies"></a> requestBodies | Map[`string`, [Request Body Object](#requestBodyObject)] | 保有可復用[Request Body Objects](#requestBodyObject)的物件。
+<a name="componentsHeaders"></a> headers | Map[`string`, [Header object](#headerObject)] | 保有可復用[標頭物件](#headerObject)的物件。
+<a name="componentsSecuritySchemes"></a> securitySchemes| Map[`string`, [Security Scheme Object](#securitySchemeObject)] | 保有可復用[安全綱要物件](#securitySchemeObject)的物件。
+<a name="componentsLinks"></a> links | Map[`string`, [Link Object](#linkObject)] | 保有可復用[連結物件](#linkObject)的物件。
+<a name="componentsCallbacks"></a> callbacks | Map[`string`, [Callback Object](#callbackObject)] | 保有可復用[回呼物件](#callbackObject)的物件。
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+所有上述宣告的固定欄位皆是必須使用符合正則表達式鑰匙的物件: `[a-zA-Z0-9.\-_]+`。
 
-All the fixed fields declared above are objects that MUST use keys that match the regular expression: `[a-zA-Z0-9.\-_]+`.
-
-Field Name Examples:
+固定欄位範例:
 
 ```
 User
