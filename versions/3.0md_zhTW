@@ -1394,16 +1394,16 @@ requestBody:
               type: '#/components/schemas/Address'
 ```
 
-In scenarios where more control is needed over the Content-Type for `multipart` request bodies, an `encoding` attribute is introduced.  This attribute is _only_ applicable to `multipart/*` and `x-www-form-urlencoded` request bodies.
+在控制多於針對`multipart` request bodies的Content-Type所需的場景中，一項`encoding`屬性要被導入。這項屬性_only_可用於`multipart/*`與`x-www-form-urlencoded` request bodies。
 
-#### <a name="encodingObject"></a>Encoding Object
+#### <a name="encodingObject"></a>編碼物件
 
-An object representing multipart region encoding for `requestBody` objects.
+一個針對`requestBody`物件表示多重部分區域編碼的物件。
 
-##### Patterned Fields
-Field Pattern | Type | Description
+##### 態樣欄位
+欄位態樣 | 類型 | 描述
 ---|:---:|---
-<a name="encodingProperty"></a>{property} | [Encoding Property Object](#encodingPropertyObject) | The property name to which the special encoding are applied.  This field MUST exist in the schema as a property.
+<a name="encodingProperty"></a>{property} | [Encoding Property Object](#encodingPropertyObject) | 屬性名稱The property name to which the special encoding are applied.  This field MUST exist in the schema as a property.
 
 ##### Encoding Object Example
 
