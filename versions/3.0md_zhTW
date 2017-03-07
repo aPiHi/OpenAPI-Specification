@@ -1475,14 +1475,12 @@ requestBody:
 ##### 態樣欄位
 欄位態樣 | 類型 | 描述
 ---|:---:|---
-<a name="responsesCode"></a>[HTTP Status Code](#httpCodes) | [Response Object](#responseObject) <span>&#124;</span> [Reference Object](#referenceObject) | 任一[HTTP status code](#httpCodes)可以被用為屬性名稱(一屬性一HTTP狀態碼)。描述該HTTP狀態碼的預期回應。[Reference Object](#referenceObject)可用於連結一項在[OpenAPI Object's responses](#oasResponses)區域上被定義的回應。為了JSON與YAML間的共通性，此欄位必須被引述(i.e. "200")，並且可以包含大寫字元，`X`指定一個使用型態通配字元，例如`2XX`為表示所有在`[200-299]`.
+<a name="responsesCode"></a>[HTTP Status Code](#httpCodes) | [Response Object](#responseObject) <span>&#124;</span> [Reference Object](#referenceObject) | 任一[HTTP status code](#httpCodes)可以被用為屬性名稱(一屬性一HTTP狀態碼)。描述該HTTP狀態碼的預期回應。[Reference Object](#referenceObject)可用於連結一項在[OpenAPI Object's responses](#oasResponses)區域上被定義的回應。為了JSON與YAML間的共通性，此欄位必須被引述(i.e. "200")，並且可以包含大寫字元，`X`指定一個使用型態通配字元，例如`2XX`為表示所有在`[200-299]`之間的HTTP狀態碼。
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
+##### 回應物件範例
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
-
-##### Responses Object Example
-
-A 200 response for successful operation and a default response for others (implying an error):
+一個針對成功運算的200反應以及一個針對其他的預設反應(暗示一個錯誤):
 
 ```json
 {
@@ -1524,23 +1522,22 @@ default:
         $ref: '#/components/schemas/ErrorModel'
 ```
 
-#### <a name="responseObject"></a>Response Object
-Describes a single response from an API Operation, including design-time, static 
-`links` to operations based on the response.
+#### <a name="responseObject"></a>回應物件
+描述一項API運算的單一回應，包含設計階段，指向依據回應運算的靜態`links`。
 
-##### Fixed Fields
-Field Name | Type | Description
+##### 固定欄位
+欄位名稱 | 類型 | 描述
 ---|:---:|---
-<a name="responseDescription"></a>description | `string` | **Required.** A short description of the response. [CommonMark syntax](http://spec.commonmark.org/) can be used for rich text representation.
-<a name="responseHeaders"></a>headers | [Headers Object](#headersObject) | A list of headers that are sent with the response.
-<a name="responseContentObject"></a>content | [Content Object](#contentObject) | An object containing descriptions of potential response payloads.
-<a name="responseLinks"></a>links | [Links Object](#linksObject) | An object representing operations related to the response payload.
+<a name="responseDescription"></a>description | `string` | **必要**。 回應的簡短描述。為了富文字呈現，可以使用[CommonMark syntax](http://spec.commonmark.org/)。
+<a name="responseHeaders"></a>headers | [Headers Object](#headersObject) | 與回應同被發送的標頭名單。
+<a name="responseContentObject"></a>content | [Content Object](#contentObject) | 一個包含潛在回應酬載描述的物件。
+<a name="responseLinks"></a>links | [Links Object](#linksObject) | 一個表示與回應酬載有關運算的物件。
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
-##### Response Object Examples
+##### 回應物件範例
 
-Response of an array of a complex type:
+一組複雜類型陣列的回應:
 
 ```json
 {
@@ -1568,7 +1565,7 @@ content:
         $ref: '#/components/schemas/VeryComplexType'
 ```
 
-Response with a string type:
+具備字串類型的回應:
 
 ```json
 {
@@ -1592,7 +1589,7 @@ representations:
       type: string
 ```
 
-Plain text response with headers:
+具標頭的正常文字回應:
 
 ```json
 {
@@ -1640,7 +1637,7 @@ headers:
     type: integer
 ```
 
-Response with no return value:
+具無返回值的回應:
 
 ```json
 {
@@ -1652,7 +1649,7 @@ Response with no return value:
 description: object created
 ```
 
-#### <a name="callbacksObject"></a>Callbacks Object
+#### <a name="callbacksObject"></a>回呼物件
 
 A map of possible out-of band callbacks related to the parent operation.
 Each value in the map is a [Callback Object](#callbackObject) that describes a request that may be initiated by the API provider and the expected responses.
