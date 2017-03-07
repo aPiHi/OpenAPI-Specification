@@ -741,13 +741,13 @@ parameters:
 
 欄位名稱 | 類型 | 描述
 ---|:---:|---
-<a name="operationTags"></a>tags | [`string`] | A list of tags for API documentation control. Tags can be used for logical grouping of operations by resources or any other qualifier.
-<a name="operationSummary"></a>summary | `string` | A short summary of what the operation does. For maximum readability in editing or documentation generation tools, this field SHOULD be less than 120 characters.
-<a name="operationDescription"></a>description | `string` | A verbose explanation of the operation behavior. [CommonMark syntax](http://spec.commonmark.org/) can be used for rich text representation.
-<a name="operationExternalDocs"></a>externalDocs | [External Documentation Object](#externalDocumentationObject) | Additional external documentation for this operation.
-<a name="operationId"></a>operationId | `string` | Unique string used to identify the operation. The id MUST be unique among all operations described in the API. Tools and libraries MAY use the operationId to uniquely identify an operation, therefore, it is recommended to follow common programming naming conventions.
-<a name="operationParameters"></a>parameters | [[Parameter Object](#parameterObject) <span>&#124;</span> [Reference Object](#referenceObject)] | A list of parameters that are applicable for this operation. If a parameter is already defined at the [Path Item](#pathItemParameters), the new definition will override it but can never remove it. The list MUST NOT include duplicated parameters. A unique parameter is defined by a combination of a [name](#parameterName) and [location](#parameterIn). The list can use the [Reference Object](#referenceObject) to link to parameters that are defined at the [OpenAPI Object's parameters](#oasParameters).
-<a name="operationRequestBody"></a>requestBody | [[Request Body Object](#requestBodyObject) <span>&#124;</span> [Reference Object](#referenceObject)] | The request body applicable for this operation.  The `requestBody` is only supported in HTTP methods where the [HTTP 1.1 specification](https://tools.ietf.org/html/rfc7231#section-4.3.1) has explicitly defined semantics for request bodies.  In other cases where the HTTP spec is vague, `requestBody` SHALL be ignored by consumers.
+<a name="operationTags"></a>tags | [`string`] | 針對API文件控制的標籤名單。標籤可以藉由資源或其他限定符用於運算的邏輯群組。
+<a name="operationSummary"></a>summary | `string` | 該運作作何用的簡短概述。為了在編輯或文件產生器中的最大化可讀性，這項欄位內容應該要少於120字元。
+<a name="operationDescription"></a>description | `string` | 運算行為的詳細解釋。為了富文字呈現，可以使用[CommonMark syntax](http://spec.commonmark.org/)。
+<a name="operationExternalDocs"></a>externalDocs | [External Documentation Object](#externalDocumentationObject) | 本運算的額外外部文件。
+<a name="operationId"></a>operationId | `string` | 用於定義運算的獨特字串。在所有該API中被描述運算中，其ID必須是獨特的。工具和函式庫可以使用operationId以獨特地定義一項運算，因此，建議遵照共通性程式命名慣例。
+<a name="operationParameters"></a>parameters | [[Parameter Object](#parameterObject) <span>&#124;</span> [Reference Object](#referenceObject)] | 可應用於本運算之參數名單。如果一項參數已經在[路徑項目](#pathItemParameters)上被定義，則新的定義將會覆寫之，但是不能移除之。該名單必須不含重複的參數。一個獨特的參數由[名稱](#parameterName)與[位置](#parameterIn)的結合所定義。該名單可以用[參考物件](#referenceObject)來連結至在[OpenAPI物件參數](#oasParameters)上被定義的參數。
+<a name="operationRequestBody"></a>requestBody | [[Request Body Object](#requestBodyObject) <span>&#124;</span> [Reference Object](#referenceObject)] | 可應用於本運算之request body。`requestBody`僅在[HTTP 1.1 specification](https://tools.ietf.org/html/rfc7231#section-4.3.1)已經明確定義request bodies語意的HTTP方法中被支援In other cases where the HTTP spec is vague, `requestBody` SHALL be ignored by consumers.
 <a name="operationResponses"></a>responses | [Responses Object](#responsesObject) | **Required.** The list of possible responses as they are returned from executing this operation.
 <a name="operationCallbacks"></a>callbacks | [Callbacks Object](#callbacksObject) | The list of possible callbacks as they are returned from executing this operation.
 <a name="operationDeprecated"></a>deprecated | `boolean` | Declares this operation to be deprecated. Consumers SHOULD refrain from usage of the declared operation. Default value is `false`.
