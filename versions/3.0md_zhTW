@@ -416,8 +416,7 @@ my.org.User
 my\org\User
 ```
 
-##### Components Object Example
-
+##### 元件物件範例
 ```json
 "components": {
   "schemas": {
@@ -572,20 +571,19 @@ components:
 ```
 
 
-#### <a name="pathsObject"></a>Paths Object
+#### <a name="pathsObject"></a>路徑物件
 
-Holds the relative paths to the individual endpoints and their operations.
-The path is appended to the URL from the [`Server Object`](#serverObject) in order to construct the full URL.  The Paths MAY be empty, due to [ACL constraints](#securityFiltering).
+保有個別端點及其運算的相對路徑。
+這項路徑是被添加至來自[`伺服器物件`](#serverObject)的URL中，以建構完整的URL。由於[ACL constraints](#securityFiltering)，這項路徑可以是空的。
 
-##### Patterned Fields
-
-Field Pattern | Type | Description
+##### 樣態欄位
+欄位樣態 | 類型 | 描述
 ---|:---:|---
-<a name="pathsPath"></a>/{path} | [Path Item Object](#pathItemObject) | A relative path to an individual endpoint. The field name MUST begin with a slash. The path is **appended** (no relative URL resolution) to the expanded URL from the [`Server Object`](#serverObject)'s `url` field in order to construct the full URL. [Path templating](#pathTemplating) is allowed.
+<a name="pathsPath"></a>/{path} | [Path Item Object](#pathItemObject) | 指向個別端點的相對路徑。該欄位名稱必須以斜線(slash)為開頭。為了建構完整URL，該路徑是被**添加**至來自[`伺服器物件`](#serverObject)之`url`欄位中之URL之中(非相對URL解決方案)。[路徑模板](#pathTemplating)是被允許的。
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。
 
-##### Paths Object Example
+##### 路徑物件範例
 
 ```json
 {
@@ -627,13 +625,13 @@ This object can be extended with [Specification Extensions](#specificationExtens
                 $ref: '#/components/schemas/pet'
 ```
 
-#### <a name="pathItemObject"></a>Path Item Object
+#### <a name="pathItemObject"></a>路徑項目物件
 
-Describes the operations available on a single path.
-A Path Item MAY be empty, due to [ACL constraints](#securityFiltering).
-The path itself is still exposed to the documentation viewer but they will not know which operations and parameters are available.
+描述在單一路徑上可用之運算。
+由於[ACL constraints](#securityFiltering)，一個路徑項目可以是空的。
+該路徑本身仍被揭露至文件閱覽器，但是它們不會得知那些運算與參數是可用的。
 
-##### Fixed Fields
+##### 固定欄位
 
 Field Name | Type | Description
 ---|:---:|---
