@@ -1651,38 +1651,38 @@ description: object created
 
 #### <a name="callbacksObject"></a>回呼物件
 
-A map of possible out-of band callbacks related to the parent operation.
-Each value in the map is a [Callback Object](#callbackObject) that describes a request that may be initiated by the API provider and the expected responses.
-The key value used to identify the callback object is an expression, evaluated at runtime, that identifies a URL to use for the callback operation.
+關係到親本運算的可能頻外回呼的地圖。
+地圖中的每個值是一組描述可能由API提供者與預期回應啟動的要求的[回呼物件](#callbackObject)。
+用於確定回呼物件的關鍵值是一組在執行期被評估，確定一組使用於回呼運算URL的陳述。
 
-##### Patterned Fields
-Field Pattern | Type | Description
+##### 樣態欄位
+欄位樣態 | 類型 | 描述
 ---|:---:|---
-<a name="callbackName"></a>{name} | [Callback Object](#callbackObject) <span>&#124;</span> [Reference Object](#ReferenceObject) | A Callback Object used to define a callback request and expected responses
+<a name="callbackName"></a>{name} | [Callback Object](#callbackObject) <span>&#124;</span> [Reference Object](#ReferenceObject) | 一組用於定義一回呼要求與預期回應的回呼物件。
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
-#### <a name="callbackObject"></a>Callback Object
+#### <a name="callbackObject"></a>回呼物件
 
-A map of possible out-of band callbacks related to the parent operation.
-Each value in the map is a [Path Item Object](#pathItemObject) that describes a set of requests that may be initiated by the API provider and the expected responses.
-The key value used to identify the callback object is an expression, evaluated at runtime, that identifies a URL to use for the callback operation.
+關係到親本運算的可能頻外回呼的地圖。
+地圖中的每個值是一組描述可能由API提供者與預期回應啟動的要求的[路徑項目物件](#pathItemObject)。
+用於確定回呼物件的關鍵值是一組在執行期被評估，確定一組使用於回呼運算URL的陳述。
 
-##### Patterned Fields
-Field Pattern | Type | Description
+##### 樣態欄位
+欄位樣態 | 類型 | 描述
 ---|:---:|---
-<a name="callbackExpression"></a>{expression} | [Path Item Object](#pathItemObject) | A Path Item Object used to define a callback request and expected responses
+<a name="callbackExpression"></a>{expression} | [Path Item Object](#pathItemObject) | 一組用於定義一回呼要求與預期回應的路徑項目物件。
 
-This object can be extended with [Specification Extensions](#specificationExtensions). 
+本物件可以由[規格擴充](#specificationExtensions)來進行擴充。 
 
-##### Key Expression
+##### 關鍵陳述
 
-The key used to identify the [Path Item Object](#pathItemObject) is a variable expression that can be evaluated in the context of a runtime HTTP request/response to identify the URL to be used for the callback request.
-A simple example might be `$request.body#/url`.
-However, using [variable substitution](#variableSubstitution) syntax the complete HTTP message can be accessed.
-This includes accessing any part of a body that can be accessed using a JSON Pointer [RFC6901](https://tools.ietf.org/html/rfc6901). 
+用於確定[路徑項目物件](#pathItemObject)的關鍵是一組可以在執行HTTP要求/回應以確定為回呼要求而使用之URL的環境中可以被評估的變數陳述。
+一組簡單範例可能是`$request.body#/url`。
+然而，使用[variable substitution](#variableSubstitution)句法，可以取得完整的HTTP訊息。
+這包含取得可以利用JSON Pointer[RFC6901](https://tools.ietf.org/html/rfc6901)所被取得的一個body的任一部分。 
 
-For example, given the following HTTP request:
+例如，下列HTTP要求:
 
 ```http
 POST /subscribe/myevent?queryUrl=http://clientdomain.com/stillrunning HTTP/1.1
@@ -1704,9 +1704,9 @@ Location: http://example.org/subscription/1
 
 ```
 
-Here are the examples of how the various expressions evaluate, assuming a the callback operation has a path parameter named `eventType` and a query parameter named `queryUrl`.
+此處為多樣陳述評估範例，假定一組回呼運算有一命名為`eventType`的路徑參述以及一組與命名為`queryUrl`的查詢參數。
 
-Expression | Value 
+陳述 | 值 
 ---|:---
 $url | http://example.org/subscribe/myevent?queryUrl=http://clientdomain.com/stillrunning
 $method | POST
@@ -1718,7 +1718,7 @@ $request.body#/successUrls/2 | http://clientdomain.com/medium
 $response.header.Location | http://example.org/subscription/1
 
 
-##### Callback Object Example
+##### 回呼物件範例
 
 A callback to the URL specified by the `url` parameter in the request
 
