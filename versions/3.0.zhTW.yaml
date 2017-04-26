@@ -1,2 +1,45 @@
-title : 目錄
-	OpenAPI 物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#oasObject
+title : 目錄  
+    定義 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#definitions
+        路徑模板 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#pathTemplating
+        媒體類型 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#mediaTypes
+        HTTP狀態碼 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#httpCodes
+    規格 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#Specification
+        格式 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#format
+        文件結構 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#fileStructure
+        資料類型 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#dataTypes
+        URL相關參考 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#relativeReferences
+        綱要 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#schema
+            OpenAPI 物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#oasObjec
+            資訊物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#infoObject
+            聯絡物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#contactObject
+            授權物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#licenseObject
+            伺服器物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#serverObject
+            伺服器變數物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#serverVariablesObject
+            元件物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#componentsObject
+            路徑物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#pathsObject
+            路徑項目物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#pathItemObject
+            操作物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#operationObject
+            外部文件物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#externalDocumentationObject
+            參數物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#parameterObject
+            Request Body Object : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#requestBodyObject
+            內容物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#contentObject
+            媒體類型物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#mediaTypeObject
+            回應物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#responsesObject
+            回應物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#responseObject
+            標頭物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#headersObject
+            範例物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#exampleObject
+            連結物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#linksObject
+            連結物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#linkObject
+            連結參數物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#linkParametersObject
+            標頭物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#headerObject
+            標籤物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#tagObject
+            範例物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#examplesObject
+            參考物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#referenceObject
+            綱要物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#schemaObject
+            XML物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#xmlObject
+            安全流程物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#securitySchemeObject
+            範圍物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#scopesObject
+            安全需求物件 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#securityRequirementObject
+        規格擴充 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#specificationExtensions
+        安全篩選 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#securityFiltering
+    附錄A 修訂歷史 : https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md#revisionHistory
