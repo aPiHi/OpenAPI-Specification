@@ -1,3 +1,8 @@
+# About this branch
+
+本專案承 [od2016](https://github.com/od2016/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.zhTW.md) 之正體中文翻譯成果，試圖持續將 OAS 3.0 文件更通順地表達，寫作風格將盡量依循 [中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines) 。由於文字頗多，如您願意幫忙，請聯絡 isacl \[AT\] unisharp.com，或是直接到本文的[工作區 (hackmd)](https://hackmd.io/GwMwJgTAHARmCmBaAhgZmAdkQFjKpyyoiArAJz4TLwAMIqIAjEA=)中共筆（我應該可以由 hackmd hisotry 中整理出貢獻者）。本譯文新的參考原文為 [OAS 3.0.0-rc2](https://github.com/OAI/OpenAPI-Specification/blob/OpenAPI.next/versions/3.0.md#path-templating)，因此在校稿的過程中也會持續將 rc2 的差異補上。
+
+
 # The OpenAPI Specification
 
 This is the working branch for the next version of the OpenAPI Specification. You can read more about the Open API Initiative (OAI) at [https://openapis.org](https://openapis.org).
